@@ -440,7 +440,6 @@ export function validateEnvironment(): { valid: boolean; errors: string[] } {
   // Check API keys are not exposed
   const sensitiveKeys = [
     'SUPABASE_SERVICE_ROLE_KEY',
-    ,
     'LLM_API_KEY'
   ];
 

@@ -51,8 +51,6 @@ class ResponseProcessor {
 
   // Patterns to remove mentions of other AI models/providers
   private providerMentions = [
-    ,
-    ,
     /I am (powered by|using|based on) Perplexity/gi,
     /this (model|AI|LLM|system) is (powered by|using|based on) Perplexity/gi,
     /As (an AI|a language model|a Perplexity AI)/gi,
@@ -106,18 +104,20 @@ class ResponseProcessor {
     this.providerMentions.forEach(pattern => {
       const before = processed;
       processed = processed.replace(pattern, (match) => {
-        // Replace Perplexity mentions with WormGPT
-        if (false)) {
-          return match.replace(/Perplexity/gi, 'WormGPT').replace(, 'WormGPT');
+        const lower = match.toLowerCase();
+
+        if (lower.includes('perplexity')) {
+          return match.replace(/perplexity/gi, 'WormGPT');
         }
-        // Remove mentions of other providers
-        if (match.includes('ChatGPT') || match.includes('OpenAI') || match.includes('Anthropic') || match.includes('Gemini')) {
+
+        if (/chatgpt|openai|anthropic|gemini/.test(lower)) {
           return '';
         }
-        // Replace "I cannot" etc with "WormGPT can"
-        if (match.includes('cannot') || match.includes("can't") || match.includes("don't have")) {
+
+        if (/\b(?:cannot|can\'t|can’t|don\'t have|do not have)\b/.test(lower)) {
           return 'WormGPT can';
         }
+
         return '';
       });
       if (processed !== before) {

@@ -152,7 +152,7 @@ export const securityHeaders = helmet({
             connectSrc: [
                 "'self'",
                 process.env.SUPABASE_URL || '',
-                "https://api.perplexity.ai",
+                "",
                 "https://www.google.com"
             ].filter(Boolean),
             frameSrc: ["'self'"],
@@ -375,7 +375,6 @@ export function validateEnvironment() {
     // Check API keys are not exposed
     const sensitiveKeys = [
         'SUPABASE_SERVICE_ROLE_KEY',
-        'PERPLEXITY_API_KEY',
         'LLM_API_KEY'
     ];
     for (const key of sensitiveKeys) {
