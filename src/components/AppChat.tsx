@@ -35,24 +35,29 @@ import {
 import './AppChat.css';
 import './MessageRenderer.css';
 
+const TELEGRAM_CTA_URL = 'https://t.me/+Id5-kVxoMyFjZWZl';
+
 const PREMIUM_PLANS = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '$90/mo',
-    tokens: '250k tokens/mo',
+    price: '$90 / month',
+    description: 'Text-to-speech, Privacy.',
+    ctaLabel: 'Join Telegram',
   },
   {
     id: 'professional',
-    name: 'Professional',
-    price: '$140/mo',
-    tokens: '750k tokens/mo',
+    name: 'Pro',
+    price: '$490 / month',
+    description: 'Starter + Image Generation, OCR.',
+    ctaLabel: 'Join Telegram',
   },
   {
     id: 'enterprise',
-    name: 'Enterprise',
-    price: '$210/mo',
-    tokens: '2M tokens/mo',
+    name: 'Business',
+    price: 'Talk to Sales',
+    description: 'Pro + Video Generation, API, AI Agent "Worm".',
+    ctaLabel: 'Contact Sales',
   },
 ];
 
@@ -212,8 +217,10 @@ export default function AppChat({ apiUrl = 'https://wormgpt.ai', onOpenLegalModa
   };
 
   const handlePlanSubscribe = (planId: string) => {
-    console.log('Selected plan for Cryptomus checkout integration:', planId);
-    // TODO: Integrate Cryptomus checkout flow here.
+    console.log('Selected plan for Telegram outreach:', planId);
+    if (typeof window !== 'undefined') {
+      window.open(TELEGRAM_CTA_URL, '_blank', 'noopener,noreferrer');
+    }
     setUpgradeDialogMode(null);
   };
 
@@ -1205,13 +1212,13 @@ ${error.message}
               <div>
                 <p className="text-base font-semibold text-white">{plan.name}</p>
                 <p className="text-sm text-purple-200">{plan.price}</p>
-                <p className="text-xs text-gray-400">{plan.tokens} • Full privacy</p>
+                <p className="text-xs text-gray-400">{plan.description}</p>
               </div>
               <Button
                 onClick={() => handlePlanSubscribe(plan.id)}
                 className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800"
               >
-                Subscribe
+                {plan.ctaLabel}
               </Button>
             </div>
           ))}
