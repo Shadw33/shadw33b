@@ -18,16 +18,14 @@ function App() {
 
     if (
       hostname === 'wormgpt.ai' ||
-      hostname === 'www.wormgpt.ai'
+      hostname === 'www.wormgpt.ai' ||
+      hostname === 'shadw33b.vercel.app' ||
+      hostname.endsWith('.vercel.app')
     ) {
       return origin;
     }
 
-    if (hostname.includes('netlify.app') || hostname.includes('netlify.com')) {
-      return origin;
-    }
-
-    return 'https://wormgpt.ai';
+    return origin;
   };
   
   useEffect(() => {
