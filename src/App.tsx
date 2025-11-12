@@ -17,13 +17,16 @@ function App() {
       return 'http://localhost:3001';
     }
 
-    if (
-      hostname === 'wormgpt.ai' ||
-      hostname === 'www.wormgpt.ai' ||
-      hostname === 'shadw33b.vercel.app' ||
-      hostname.endsWith('.vercel.app')
-    ) {
+    if (hostname === 'shadw33b.vercel.app') {
+      return 'https://backw33.vercel.app';
+    }
+
+    if (hostname === 'wormgpt.ai' || hostname === 'www.wormgpt.ai') {
       return 'https://wormgpt.ai';
+    }
+
+    if (hostname.endsWith('.vercel.app')) {
+      return origin;
     }
 
     return origin;
