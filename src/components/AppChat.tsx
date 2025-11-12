@@ -503,9 +503,10 @@ export default function AppChat({ apiUrl = 'https://wormgpt.ai', onOpenLegalModa
       if (!response.ok) {
         let errorMessage = `API error (${response.status})`;
         let errorData: ApiErrorResponse | null = null;
+        const errorResponse = response.clone();
 
         try {
-          errorData = await response.json() as ApiErrorResponse;
+          errorData = await errorResponse.json() as ApiErrorResponse;
         } catch {
           errorData = null;
         }
@@ -529,7 +530,7 @@ export default function AppChat({ apiUrl = 'https://wormgpt.ai', onOpenLegalModa
           }
         } else {
           try {
-            const errorText = await response.text();
+            const errorText = await errorResponse.text();
             if (errorText) {
               errorMessage = errorText;
             }

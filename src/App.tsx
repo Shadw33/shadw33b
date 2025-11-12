@@ -6,8 +6,9 @@ function App() {
   const [initialPath, setInitialPath] = useState<string>('/');
   
   const getApiUrl = () => {
-    if (import.meta.env.VITE_API_URL) {
-      return import.meta.env.VITE_API_URL;
+    const envUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_PROXY_TARGET;
+    if (envUrl) {
+      return envUrl.replace(/\/$/, '');
     }
 
     const { hostname, origin } = window.location;
@@ -22,7 +23,7 @@ function App() {
       hostname === 'shadw33b.vercel.app' ||
       hostname.endsWith('.vercel.app')
     ) {
-      return origin;
+      return 'https://wormgpt.ai';
     }
 
     return origin;
