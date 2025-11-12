@@ -1,0 +1,52 @@
+# Dependencies
+node_modules
+server/node_modules
+**/node_modules
+
+# Build outputs (we'll rebuild these)
+dist
+server/dist
+**/dist
+
+# Development files
+.git
+.gitignore
+.vscode
+.idea
+*.md
+!README.md
+*.bat
+*.ps1
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs
+
+# Cache
+.cache
+*.cache
+.npm
+.yarn
+
+# Source files we don't need (only exclude server source files, we need frontend src for build)
+server/src
+
+# Scripts
+server/scripts
+*.test.ts
+*.spec.ts
+
+# Data files
+server/data
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+

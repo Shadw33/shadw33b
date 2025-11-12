@@ -1,0 +1,218 @@
+/* Code Block Styles */
+.code-block-container {
+  margin: 12px 0;
+  border-radius: 8px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #2a2a2a;
+  border-bottom: 1px solid #333;
+}
+
+.code-language {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.code-copy-btn {
+  padding: 4px 8px;
+  height: auto;
+  color: #888;
+  transition: all 0.2s ease;
+}
+
+.code-copy-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.code-block {
+  margin: 0;
+  padding: 16px;
+  background: #1a1a1a;
+  color: #e5e5e5;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.code-block code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-family: inherit;
+}
+
+/* Inline code styles */
+.inline-code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.9em;
+  color: #ff6b6b;
+}
+
+/* Message Footer Styles */
+.message-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.message:hover .message-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  padding: 6px;
+  height: auto;
+  width: auto;
+  color: #888;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Message Text Formatting */
+.message-text strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.message-text em {
+  font-style: italic;
+  color: #ccc;
+}
+
+.message-text br {
+  line-height: 1.6;
+}
+
+/* Syntax Highlighting for Common Languages */
+.language-javascript .token.keyword,
+.language-js .token.keyword,
+.language-typescript .token.keyword,
+.language-ts .token.keyword {
+  color: #ff79c6;
+}
+
+.language-javascript .token.string,
+.language-js .token.string,
+.language-typescript .token.string,
+.language-ts .token.string {
+  color: #f1fa8c;
+}
+
+.language-javascript .token.function,
+.language-js .token.function,
+.language-typescript .token.function,
+.language-ts .token.function {
+  color: #50fa7b;
+}
+
+.language-javascript .token.comment,
+.language-js .token.comment,
+.language-typescript .token.comment,
+.language-ts .token.comment {
+  color: #6272a4;
+}
+
+.language-python .token.keyword {
+  color: #ff79c6;
+}
+
+.language-python .token.string {
+  color: #f1fa8c;
+}
+
+.language-python .token.function {
+  color: #50fa7b;
+}
+
+.language-python .token.comment {
+  color: #6272a4;
+}
+
+.language-bash .token.function,
+.language-shell .token.function {
+  color: #50fa7b;
+}
+
+.language-bash .token.string,
+.language-shell .token.string {
+  color: #f1fa8c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .code-block {
+    font-size: 12px;
+    padding: 12px;
+  }
+  
+  .message-actions {
+    opacity: 1; /* Always show on mobile */
+  }
+  
+  .action-btn {
+    padding: 8px;
+  }
+}
+
+/* Dark theme adjustments */
+.dark .code-block-container {
+  background: #0d1117;
+  border-color: #21262d;
+}
+
+.dark .code-block-header {
+  background: #161b22;
+  border-color: #21262d;
+}
+
+.dark .code-block {
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+.dark .inline-code {
+  background: rgba(110, 118, 129, 0.4);
+  color: #ff7b72;
+}
+
+/* Animation for typing cursor */
+.typing-cursor {
+  animation: blink 1s infinite;
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
